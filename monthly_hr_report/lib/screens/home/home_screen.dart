@@ -197,6 +197,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ]),
               ),
               SizedBox(height: 20),
+              Container(child: Text('Total Teaching Hours', style: TextStyle(fontSize: 16))),
+              SizedBox(height: 20),
+              SizedBox(height: 20),
               ExpandablePanel(
                 header: Text('Summary of Task Completed'),
                 collapsed: Container(),
@@ -282,6 +285,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ])
                 ]),
               ),
+              SizedBox(height: 20),
+              Container(child: Text('Total Research Hours', style: TextStyle(fontSize: 16))),
+              SizedBox(height: 20),
               SizedBox(height: 20),
               ExpandablePanel(
                 header: Text('Summary of Task Completed'),
@@ -383,6 +389,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ])
                 ]),
               ),
+              SizedBox(height: 20),
+              Container(child: Text('Total Admin Hours', style: TextStyle(fontSize: 16))),
               SizedBox(height: 20),
               ExpandablePanel(
                 header: Text('Summary of Task Completed'),
