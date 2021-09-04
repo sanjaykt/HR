@@ -1,3 +1,4 @@
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:monthly_hr_report/commons/my_colors.dart';
 import 'package:monthly_hr_report/screens/login/login_screen.dart';
@@ -184,30 +185,53 @@ class _HomeScreenState extends State<HomeScreen> {
                     DataCell(TextFormField()),
                     DataCell(TextFormField()),
                   ]),
+                  DataRow(cells: [
+                    DataCell(Text('Total')),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                  ])
                 ]),
               ),
               SizedBox(height: 20),
-              Text('Summary of Task Completed'),
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
-                minLines: 5,
-                maxLines: 5,
+              ExpandablePanel(
+                header: Text('Summary of Task Completed'),
+                collapsed: Container(),
+                expanded: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+                  minLines: 5,
+                  maxLines: 5,
+                ),
               ),
-              SizedBox(height: 20),
-              Text('Summary of Deliverables'),
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
-                minLines: 5,
-                maxLines: 5,
+              // Text('Summary of Task Completed'),
+              // TextFormField(
+              //   decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+              //   minLines: 5,
+              //   maxLines: 5,
+              // ),
+              // SizedBox(height: 20),
+              ExpandablePanel(
+                header: Text('Summary of Deliverables'),
+                expanded: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+                  minLines: 5,
+                  maxLines: 5,
+                ),
+                collapsed: Container(),
               ),
-              SizedBox(height: 20),
-              Text('Achievements/Outcomes'),
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
-                minLines: 5,
-                maxLines: 5,
+              ExpandablePanel(
+                header: Text('Achievements/Outcomes'),
+                collapsed: Container(),
+                expanded: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+                  minLines: 5,
+                  maxLines: 5,
+                ),
               ),
-              SizedBox(height: 30),
+
               Divider(),
               Text('Research Work', textAlign: TextAlign.center, style: TextStyle(fontSize: 16)),
               SizedBox(height: 20),
@@ -250,29 +274,42 @@ class _HomeScreenState extends State<HomeScreen> {
                     DataCell(TextFormField()),
                     DataCell(TextFormField()),
                   ]),
+                  DataRow(cells: [
+                    DataCell(Text('Total')),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                  ])
                 ]),
               ),
-              Text('Summary of Task Completed'),
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
-                minLines: 5,
-                maxLines: 5,
-              ),
               SizedBox(height: 20),
-              Text('Summary of Deliverables'),
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
-                minLines: 5,
-                maxLines: 5,
+              ExpandablePanel(
+                header: Text('Summary of Task Completed'),
+                collapsed: Container(),
+                expanded: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+                  minLines: 5,
+                  maxLines: 5,
+                ),
               ),
-              SizedBox(height: 20),
-              Text('Achievements/Outcomes'),
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
-                minLines: 5,
-                maxLines: 5,
+              ExpandablePanel(
+                header: Text('Summary of Deliverables'),
+                collapsed: Container(),
+                expanded: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+                  minLines: 5,
+                  maxLines: 5,
+                ),
               ),
-              SizedBox(height: 30),
+              ExpandablePanel(
+                header: Text('Achievements/Outcomes'),
+                collapsed: Container(),
+                expanded: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+                  minLines: 5,
+                  maxLines: 5,
+                ),
+              ),
               Divider(),
               Text('Admin Work', textAlign: TextAlign.center, style: TextStyle(fontSize: 16)),
               SizedBox(height: 20),
@@ -336,28 +373,49 @@ class _HomeScreenState extends State<HomeScreen> {
                     DataCell(TextFormField()),
                     DataCell(TextFormField()),
                   ]),
+                  DataRow(cells: [
+                    DataCell(Text('Total')),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                    DataCell(TextFormField()),
+                  ])
                 ]),
               ),
-              Text('Summary of Task Completed'),
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
-                minLines: 5,
-                maxLines: 5,
-              ),
               SizedBox(height: 20),
-              Text('Summary of Deliverables'),
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
-                minLines: 5,
-                maxLines: 5,
+              ExpandablePanel(
+                header: Text('Summary of Task Completed'),
+                collapsed: Container(),
+                expanded: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+                  minLines: 5,
+                  maxLines: 5,
+                ),
               ),
+              ExpandablePanel(
+                header: Text('Summary of Deliverables'),
+                collapsed: Container(),
+                expanded: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+                  minLines: 5,
+                  maxLines: 5,
+                ),
+              ),
+              ExpandablePanel(
+                header: Text('Achievements/Outcomes'),
+                collapsed: Container(),
+                expanded: TextFormField(
+                  decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
+                  minLines: 5,
+                  maxLines: 5,
+                ),
+              ),
+              SizedBox(height: 30),
+              Container(child: Text('Total Hours in the Month', style: TextStyle(fontSize: 20)),),
               SizedBox(height: 20),
-              Text('Achievements/Outcomes'),
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 2))),
-                minLines: 5,
-                maxLines: 5,
-              ),
+              Container(child: Text('Average Hours in a Day', style: TextStyle(fontSize: 20),),),
+              SizedBox(height: 39),
             ],
           ),
         ),
