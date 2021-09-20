@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monthly_hr_report/screens/login/login_screen.dart';
+import 'package:monthly_hr_report/screens/user/user_list.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -14,6 +15,13 @@ class AppDrawer extends StatelessWidget {
           ),
           accountName: Text('Account Name'),
           accountEmail: Text('Account Email'),
+        ),
+        ListTile(
+          leading: Icon(Icons.people),
+          title: Text('Users'),
+          onTap: () {
+            Navigator.popAndPushNamed(context, UserListScreen.routeName);
+          },
         ),
         ListTile(
           leading: Icon(Icons.logout),

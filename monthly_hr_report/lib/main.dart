@@ -5,6 +5,7 @@ import 'package:monthly_hr_report/providers/user_provider.dart';
 import 'package:monthly_hr_report/screens/home/home_screen.dart';
 import 'package:monthly_hr_report/screens/login/login_screen.dart';
 import 'package:monthly_hr_report/screens/user/user_details.dart';
+import 'package:monthly_hr_report/screens/user/user_list.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -17,9 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-            create: (context) => AuthProvider(), lazy: false),
-        ChangeNotifierProvider(create: (ctx) => UserProvider(), lazy: false),
+        ChangeNotifierProvider(create: (context) => AuthProvider(), lazy: false),
+        ChangeNotifierProvider(create: (context) => UserProvider(), lazy: false),
         // Provider(create: (context) => DatabaseProvider(), lazy: false),
         // ChangeNotifierProxyProvider2<AuthProvider, DatabaseProvider,
         //     ProductProvider>(
@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          primaryColor: MyColors.primaryColor,
-          accentColor: MyColors.accentColor,
+          // primaryColor: MyColors.primaryColor,
+          // accentColor: MyColors.accentColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           textTheme: TextTheme(
               headline1: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -52,18 +52,19 @@ class MyApp extends StatelessWidget {
             height: 50,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              // side: BorderSide(color: Theme.of(context).accentColor, width: 5),
+              side: BorderSide(color: Theme.of(context).accentColor, width: 5),
             ),
             buttonColor: MyColors.accentColor,
             // textTheme: ButtonTextTheme.primary
           ),
           backgroundColor: Colors.grey.shade50,
           cursorColor: Colors.redAccent,
-          colorScheme: ColorScheme.light(),
+          // colorScheme: ColorScheme.dark(),
           errorColor: Colors.red,
         ),
         routes: {
           LoginScreen.routeName: (BuildContext context) => LoginScreen(),
+          UserListScreen.routeName: (BuildContext context) => UserListScreen(),
           UserDetails.routeName: (BuildContext context) => UserDetails(),
           HomeScreen.routeName: (BuildContext context) => HomeScreen(),
           // AdminHomeScreen.routeName: (BuildContext context) =>

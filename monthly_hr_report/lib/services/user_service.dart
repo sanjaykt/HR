@@ -2,11 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:monthly_hr_report/commons/constants.dart';
+import 'package:monthly_hr_report/models/server_response.dart';
 
 import '../models/user.dart';
 
 class UserService {
-  static const String PATH = "/user";
+  static const String PATH = "/users";
 
   Future<String> createUser(User user) async {
     Uri url = Uri.parse(Constants.SERVER + PATH);
@@ -26,6 +27,23 @@ class UserService {
       return 'failed';
     }
     return null;
+  }
+
+  Future<ServerResponse> getUsers() async {
+    Uri url = Uri.parse(Constants.SERVER + PATH);
+    try {
+      http.Response response = await http.get(url, headers: Constants.HEADER);
+      if (response.statusCode == 200) {
+        print(response);
+        var users = User.formJson(json.decode(response.body));
+        print(users);
+       return ServerResponse(data: [], status: 'Successful', message: 'all good');
+      }
+    } catch(error) {
+      return ServerResponse(message: 'Failed to get users');
+    }
+    return ServerResponse(message: 'Error');
+
   }
 //
 //  Future<ServerResponse> login(String username, String password) async {

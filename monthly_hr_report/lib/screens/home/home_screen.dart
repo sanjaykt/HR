@@ -16,9 +16,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('AWNA Monthly Report'),
+        // backgroundColor: theme.primaryColor,
       ),
       drawer: AppDrawer(),
       body: Form(
