@@ -14,6 +14,9 @@ class _UserDetailsState extends State<UserDetails> {
   final _formKey = GlobalKey<FormState>();
   ThemeData theme;
   TextEditingController _usernameCtrl = TextEditingController();
+  TextEditingController _firstnameCtrl = TextEditingController();
+  TextEditingController _lastnameCtrl = TextEditingController();
+  TextEditingController _emailCtrl = TextEditingController();
   TextEditingController _passwordCtrl = TextEditingController();
   TextEditingController _passwordConfirmCtrl = TextEditingController();
 
@@ -36,6 +39,12 @@ class _UserDetailsState extends State<UserDetails> {
           child: ListView(
             children: <Widget>[
               SizedBox(height: 30),
+              _buildFirstnameTextFormField(),
+              SizedBox(height: 15),
+              _buildLastnameTextFormField(),
+              SizedBox(height: 15),
+              _buildEmailTextFormField(),
+              SizedBox(height: 15),
               _buildUsernameTextFormField(),
               SizedBox(height: 15),
               _buildPasswordTextFormField(),
@@ -50,6 +59,110 @@ class _UserDetailsState extends State<UserDetails> {
     );
   }
 
+  Widget _buildFirstnameTextFormField() {
+    return TextFormField(
+      enabled: true,
+      keyboardType: TextInputType.text,
+      controller: _firstnameCtrl,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(borderSide: BorderSide.none),
+        filled: true,
+        // fillColor: kPrimaryColor200,
+        hintText: 'first name',
+        labelText: 'first name',
+        prefixIcon: Icon(
+          Icons.person_outline,
+          // color: theme.iconTheme.color,
+        ),
+        suffixIcon: Icon(
+          Icons.edit,
+          // color: theme.iconTheme.color,
+        ),
+        suffixStyle: TextStyle(color: Colors.green),
+      ),
+      validator: (String value) {
+        value = _usernameCtrl.text.trim();
+        if (value.isEmpty) {
+          return 'please enter first name';
+        } else {
+          return null;
+        }
+      },
+      onSaved: (String value) async {
+        _user.firstname = _firstnameCtrl.text.trim();
+      },
+    );
+  }
+
+  Widget _buildEmailTextFormField() {
+    return TextFormField(
+      enabled: true,
+      keyboardType: TextInputType.text,
+      controller: _emailCtrl,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(borderSide: BorderSide.none),
+        filled: true,
+        // fillColor: kPrimaryColor200,
+        hintText: 'email',
+        labelText: 'email',
+        prefixIcon: Icon(
+          Icons.person_outline,
+          // color: theme.iconTheme.color,
+        ),
+        suffixIcon: Icon(
+          Icons.edit,
+          // color: theme.iconTheme.color,
+        ),
+        suffixStyle: TextStyle(color: Colors.green),
+      ),
+      validator: (String value) {
+        value = _emailCtrl.text.trim();
+        if (value.isEmpty) {
+          return 'Please enter email';
+        } else {
+          return null;
+        }
+      },
+      onSaved: (String value) async {
+        _user.email = _emailCtrl.text.trim();
+      },
+    );
+  }
+
+  Widget _buildLastnameTextFormField() {
+    return TextFormField(
+      enabled: true,
+      keyboardType: TextInputType.text,
+      controller: _lastnameCtrl,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(borderSide: BorderSide.none),
+        filled: true,
+        // fillColor: kPrimaryColor200,
+        hintText: 'last name',
+        labelText: 'last name',
+        prefixIcon: Icon(
+          Icons.person_outline,
+          // color: theme.iconTheme.color,
+        ),
+        suffixIcon: Icon(
+          Icons.edit,
+          // color: theme.iconTheme.color,
+        ),
+        suffixStyle: TextStyle(color: Colors.green),
+      ),
+      validator: (String value) {
+        value = _lastnameCtrl.text.trim();
+        if (value.isEmpty) {
+          return 'please enter last name';
+        } else {
+          return null;
+        }
+      },
+      onSaved: (String value) async {
+        _user.lastname = _lastnameCtrl.text.trim();
+      },
+    );
+  }
   Widget _buildUsernameTextFormField() {
     return TextFormField(
       enabled: true,
@@ -170,10 +283,10 @@ class _UserDetailsState extends State<UserDetails> {
           }
           _formKey.currentState.save();
           String response = await _userProvider.createUser(_user);
-          print(response);
-          if (response == 'success') {
-            Navigator.popAndPushNamed(context, LoginScreen.routeName);
-          }
+          // print(response);
+          // if (response == 'success') {
+          //   Navigator.popAndPushNamed(context, LoginScreen.routeName);
+          // }
         },
       ),
     );

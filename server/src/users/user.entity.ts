@@ -5,9 +5,18 @@ export class User {
   @PrimaryGeneratedColumn()
   id: string
 
-  @Column()
+  @Column({nullable: true})
+  firstname: string
+
+  @Column({nullable: true})
+  lastname: string
+
+  @Column({nullable: false, unique: true})
   username: string
 
-  @Column()
+  @Column({nullable: false})
+  password: string
+
+  @Column({nullable: true, unique: true})
   email: string
 }
