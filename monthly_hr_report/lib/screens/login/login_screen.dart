@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:monthly_hr_report/commons/constants.dart';
 import 'package:monthly_hr_report/screens/home/home_screen.dart';
 import 'package:monthly_hr_report/screens/user/user_details.dart';
 import 'package:provider/provider.dart';
 import '../../models/server_response.dart';
 import '../../providers/auth_provider.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class LoginScreen extends StatefulWidget {
   static final routeName = '/';
@@ -49,6 +52,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   child: Text('Skip')),
               SizedBox(height: 30),
+              ElevatedButton(
+                child: Container(
+                  child: Text('Test backend'),
+                ),
+                onPressed: () async {
+                  Uri uri = Uri.parse(Constants.SERVER);
+                  http.Response response = await http.get(uri);
+                  if (response.statusCode == 200) {
+                    var responseJson = json.decode(response.body);
+                    print(responseJson);
+                    // ServerResponse serverResponse = ServerResponse.fromJson(responseJson);
+                    // print(serverResponse.data);
+                  }
+                },
+              )
             ],
           ),
         ),
