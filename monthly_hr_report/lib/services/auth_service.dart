@@ -10,11 +10,11 @@ import '../models/user.dart';
 class AuthService {
   static const String PATH = "/user";
 
-  Future<ServerResponse> login(String username, String password) async {
+  Future<ServerResponse> login(String employeeId, String password) async {
     Uri url = Uri.parse(Constants.SERVER + PATH + '/login');
 
     User user = User();
-    user.username = username;
+    user.employeeId = employeeId;
     user.password = sha512.convert(utf8.encode(password)).toString();
 
     var userJson = user.toJson();

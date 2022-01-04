@@ -19,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   ThemeData theme;
   AuthProvider _authProvider;
-  String username;
+  String employeeId;
   String password;
 
   @override
@@ -100,8 +100,8 @@ class _LoginScreenState extends State<LoginScreen> {
           Icons.person,
           // color: kOnBackgroundColor,
         ),
-        labelText: 'username',
-        hintText: 'username',
+        labelText: 'Employee Id',
+        hintText: 'Employee Id',
         filled: true,
         // fillColor: kPrimaryColor200,
       ),
@@ -113,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       },
       onSaved: (value) {
-        username = value.trim();
+        employeeId = value.trim();
       },
     );
   }
@@ -161,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
           }
           _formKey.currentState.save();
           ServerResponse serverResponse =
-          await _authProvider.login(username, password);
+          await _authProvider.login(employeeId, password);
           if (serverResponse.status == SUCCESS) {
 //            goToProductScreen();
               Navigator.popAndPushNamed(context, HomeScreen.routeName);

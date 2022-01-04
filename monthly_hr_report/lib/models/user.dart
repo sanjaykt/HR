@@ -1,10 +1,10 @@
 class User {
   int id;
-  String firstname;
-  String lastname;
-  String username;
+  String firstName;
+  String lastName;
+  String employeeId;
   String password;
-  String email;
+  String officialEmail;
   int phoneNumber;
   int addressId;
   String role;
@@ -18,11 +18,11 @@ class User {
 
   User.formJson(Map<String, dynamic> json)
       : id = json['id'],
-        firstname = json['firstname'],
-        lastname = json['lastname'],
-        username = json['username'],
+        firstName = json['firstName'],
+        lastName = json['lastName'],
+        employeeId = json['employeeId'],
         password = json['password'],
-        email = json['email'],
+        officialEmail = json['officialEmail'],
         phoneNumber = json['phoneNumber'],
         addressId = json['addressId'],
         role = json['role'],
@@ -38,11 +38,11 @@ class User {
 
   Map<String, dynamic> toJson() => {
     'id': id,
-    'firstname': firstname,
-    'lastname': lastname,
-    'username': username,
+    'firstName': firstName,
+    'lastName': lastName,
+    'employeeId': employeeId,
     'password': password,
-    'email': email,
+    'officialEmail': officialEmail,
     'phoneNumber': phoneNumber,
     'addressId': addressId,
     'role': role,

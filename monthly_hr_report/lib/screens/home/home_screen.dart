@@ -14,6 +14,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _formKey = GlobalKey<FormState>();
 
+  DateTime _dateTime = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -63,52 +65,73 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: 20),
               Container(child: Text('Reporting Year', style: TextStyle(fontSize: 18))),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Year',
-                  hintStyle: TextStyle(fontSize: 10),
-                  border: InputBorder.none,
-                  focusedBorder: OutlineInputBorder(borderSide: BorderSide()),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(_dateTime.year.toString()),
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
+                decoration: BoxDecoration(
+
+                ),
               ),
+              // TextFormField(
+              //   decoration: InputDecoration(
+              //     hintText: 'Year',
+              //     hintStyle: TextStyle(fontSize: 10),
+              //     border: InputBorder.none,
+              //     focusedBorder: OutlineInputBorder(borderSide: BorderSide()),
+              //   ),
+              //   validator: (value) {
+              //     if (value == null || value.isEmpty) {
+              //       return 'Please enter some text';
+              //     }
+              //     return null;
+              //   },
+              // ),
               SizedBox(height: 20),
               Container(child: Text('Reporting Month', style: TextStyle(fontSize: 18))),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Month',
-                  hintStyle: TextStyle(fontSize: 10),
-                  border: InputBorder.none,
-                  focusedBorder: OutlineInputBorder(borderSide: BorderSide()),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(_dateTime.month.toString()),
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
               ),
+              // TextFormField(
+              //   decoration: InputDecoration(
+              //     hintText: 'Month',
+              //     hintStyle: TextStyle(fontSize: 10),
+              //     border: InputBorder.none,
+              //     focusedBorder: OutlineInputBorder(borderSide: BorderSide()),
+              //   ),
+              //   validator: (value) {
+              //     if (value == null || value.isEmpty) {
+              //       return 'Please enter some text';
+              //     }
+              //     return null;
+              //   },
+              // ),
               SizedBox(height: 20),
               Container(child: Text('Working Days of the Month', style: TextStyle(fontSize: 18))),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Worked Days',
-                  hintStyle: TextStyle(fontSize: 10),
-                  border: InputBorder.none,
-                  focusedBorder: OutlineInputBorder(borderSide: BorderSide()),
+              Container(
+                child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Text(25.toString()),
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
               ),
+              // TextFormField(
+              //   decoration: InputDecoration(
+              //     hintText: 'Worked Days',
+              //     hintStyle: TextStyle(fontSize: 10),
+              //     border: InputBorder.none,
+              //     focusedBorder: OutlineInputBorder(borderSide: BorderSide()),
+              //   ),
+              //   validator: (value) {
+              //     if (value == null || value.isEmpty) {
+              //       return 'Please enter some text';
+              //     }
+              //     return null;
+              //   },
+              // ),
               SizedBox(height: 20),
               Container(child: Text('Days of Leave Taken', style: TextStyle(fontSize: 18))),
               TextFormField(

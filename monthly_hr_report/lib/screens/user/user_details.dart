@@ -45,7 +45,7 @@ class _UserDetailsState extends State<UserDetails> {
               SizedBox(height: 15),
               _buildEmailTextFormField(),
               SizedBox(height: 15),
-              _buildUsernameTextFormField(),
+              _buildEmployeeIdTextFormField(),
               SizedBox(height: 15),
               _buildPasswordTextFormField(),
               SizedBox(height: 15),
@@ -89,7 +89,7 @@ class _UserDetailsState extends State<UserDetails> {
         }
       },
       onSaved: (String value) async {
-        _user.firstname = _firstnameCtrl.text.trim();
+        _user.firstName = _firstnameCtrl.text.trim();
       },
     );
   }
@@ -103,8 +103,8 @@ class _UserDetailsState extends State<UserDetails> {
         border: OutlineInputBorder(borderSide: BorderSide.none),
         filled: true,
         // fillColor: kPrimaryColor200,
-        hintText: 'email',
-        labelText: 'email',
+        hintText: 'officialEmail',
+        labelText: 'officialEmail',
         prefixIcon: Icon(
           Icons.person_outline,
           // color: theme.iconTheme.color,
@@ -124,7 +124,7 @@ class _UserDetailsState extends State<UserDetails> {
         }
       },
       onSaved: (String value) async {
-        _user.email = _emailCtrl.text.trim();
+        _user.officialEmail = _emailCtrl.text.trim();
       },
     );
   }
@@ -159,11 +159,11 @@ class _UserDetailsState extends State<UserDetails> {
         }
       },
       onSaved: (String value) async {
-        _user.lastname = _lastnameCtrl.text.trim();
+        _user.lastName = _lastnameCtrl.text.trim();
       },
     );
   }
-  Widget _buildUsernameTextFormField() {
+  Widget _buildEmployeeIdTextFormField() {
     return TextFormField(
       enabled: true,
       keyboardType: TextInputType.text,
@@ -172,8 +172,8 @@ class _UserDetailsState extends State<UserDetails> {
         border: OutlineInputBorder(borderSide: BorderSide.none),
         filled: true,
         // fillColor: kPrimaryColor200,
-        hintText: 'username',
-        labelText: 'username',
+        hintText: 'Employee Id',
+        labelText: 'Employee Id',
         prefixIcon: Icon(
           Icons.person_outline,
           // color: theme.iconTheme.color,
@@ -187,13 +187,13 @@ class _UserDetailsState extends State<UserDetails> {
       validator: (String value) {
         value = _usernameCtrl.text.trim();
         if (value.isEmpty) {
-          return 'please enter username';
+          return 'please enter employee Id';
         } else {
           return null;
         }
       },
       onSaved: (String value) async {
-        _user.username = _usernameCtrl.text.trim();
+        _user.employeeId = _usernameCtrl.text.trim();
       },
     );
   }

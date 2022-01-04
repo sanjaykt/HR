@@ -13,7 +13,7 @@ router.get('/users', (req, res) => {
 router.post('/user/login', (req, res) => {
     const user = req.body;
     User.findOne({
-        where: {username: user.username}
+        where: {employeeId: user.employeeId}
     }).then((foundUser) => {
         if (foundUser.password === user.password) {
             response.response({
@@ -37,7 +37,7 @@ router.post('/user/login', (req, res) => {
 router.post('/user/signup', (req, res) => {
     const user = req.body;
     User.create({
-        username: user.username,
+        employeeId: user.employeeId,
         password: user.password,
         createdByUserId: 1,
         modifiedByUserId: 1,
