@@ -3,4 +3,5 @@
 *.ipr
 *.iws
 .idea/
+/node-server/node_modules
 /server-node/node_modules
