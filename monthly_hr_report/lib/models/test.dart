@@ -14,3 +14,7 @@ var name = 'node-server';
 // resolving merge conflict node-server branch
 
 var name1 = 'test_branch';
+
+// this written in test_branch
+
+// more changes
